@@ -16,3 +16,18 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
 ### Code
 We are working on releasing code.
+
+
+### Citing
+If you find our paper/code useful, please consider citing:
+
+```
+@misc{liu2020visualnews,
+      title={VisualNews : Benchmark and Challenges in Entity-aware Image Captioning}, 
+      author={Fuxiao Liu and Yinghan Wang and Tianlu Wang and Vicente Ordonez},
+      year={2020},
+      eprint={2010.03743},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
