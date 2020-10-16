@@ -233,7 +233,7 @@ class AttnDecoderRNN(nn.Module):
 
     def sample1(self, encoder_out, caps, caplens, word_map, encoded_articles, article_lengths, voab1,mask, reference, lenre, mask2):
         global embeddings, tmp1
-        #article 部分
+        #article
         batch_size = encoder_out.size(0)
         embeddings1 = self.embedding1(encoded_articles)
         embeddings0 = self.embedding1(reference)
