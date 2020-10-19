@@ -395,7 +395,7 @@ class Seq2Seq(nn.Module):
             #print('output:', output)
             #print('output:', output.size())
             pred_token = output.argmax(2)[:, -1].unsqueeze(1)
-            output1 = F.log_softmax(output, dim=1)
+            #output1 = F.log_softmax(output, dim=1)
             _, predicted = output1.max(2)
             predicted = predicted[:, -1].unsqueeze(1)
             #print('predicted:',predicted.size())
