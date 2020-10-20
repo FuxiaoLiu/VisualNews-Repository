@@ -392,25 +392,12 @@ class Seq2Seq(nn.Module):
             trg_mask = self.make_trg_mask(trg_tensor)
             with torch.no_grad():
                 output, attention = self.decoder(trg_tensor, enc_src, trg_mask, src_mask, encoder_out1)
-            #print('output:', output)
-            #print('output:', output.size())
             pred_token = output.argmax(2)[:, -1].unsqueeze(1)
             #output1 = F.log_softmax(output, dim=1)
             _, predicted = output1.max(2)
             predicted = predicted[:, -1].unsqueeze(1)
-            #print('predicted:',predicted.size())
-            #print(predicted)
-            #print('output1:', output1.size())
-            #print(output1)
-            #print('pred_token:', pred_token.size())
-            #print(pred_token)
             trg_tensor = torch.cat([trg_tensor, predicted], dim=1)
 
-            #sampled_ids.append(predicted)
-            #print('trg_tensor:', trg_tensor.size())
-            #print(trg_tensor)
-        #sampled_ids = torch.stack(sampled_ids, 1)
-        #return trg_tensor
         return trg_tensor
 
 
