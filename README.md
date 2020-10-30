@@ -15,12 +15,13 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 - To access our dataset, please refer to this [demo](./VisualNews-Dataset.ipynb)
 
 ### Code and Training
+We are working on releasing code.
 
 ```sh
 # Train the full model on NYTimes800k. This takes around 4 days on a Titan V GPU.
 # The training will populate the directory expt/nytimes/9_transformer_objects/serialization
 CUDA_VISIBLE_DEVICES=0 tell train expt/nytimes/9_transformer_objects/config.yaml -f
-
+```
 
 ### Citing
 If you find our paper/code useful, please consider citing:
