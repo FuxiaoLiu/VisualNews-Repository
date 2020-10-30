@@ -18,9 +18,8 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 We are working on releasing code.
 
 ```sh
-# Train the full model on NYTimes800k. This takes around 4 days on a Titan V GPU.
-# The training will populate the directory expt/nytimes/9_transformer_objects/serialization
-CUDA_VISIBLE_DEVICES=0 tell train expt/nytimes/9_transformer_objects/config.yaml -f
+# Train the full model on VisualNews.
+CUDA_VISIBLE_DEVICES=0 python train.py
 ```
 
 ### Citing
