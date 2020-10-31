@@ -22,8 +22,7 @@ We are working on releasing code.
 CUDA_VISIBLE_DEVICES=0 python train.py
 ```
 
-There are also other model variants which are ablation studies. Check
-our paper for more details, but here's a summary:
+There are also other model variants which are ablation studies.
 
 | Experiment                       | Word Embedding | Language Model |    Entity Guide |
 | -------------------------------- | :------------: | -------------: | --------------: |
