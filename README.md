@@ -22,6 +22,19 @@ We are working on releasing code.
 CUDA_VISIBLE_DEVICES=0 python train.py
 ```
 
+There are also other model variants which are ablation studies. Check
+our paper for more details, but here's a summary:
+
+| Experiment                       | Word Embedding | Language Model |    Entity Guide |
+| -------------------------------- | :------------: | -------------: | --------------: |
+| `1_lstm_basic`                   |     GloVe      |           LSTM |                 |
+| `2_lstm_EA`                      |     GloVe      |           LSTM |                 |                 
+| `3_lstm_EG`                      |    RoBERTa     |           LSTM |               ✔ |                  
+| `4_lstm_EA_EG`                   |    RoBERTa     |           LSTM |               ✔ |               
+| `5_lstm_EA_EG_Tag_Cleaning`      |    RoBERTa     |           LSTM |               ✔ |                
+| `6_transformer`                  |    RoBERTa     |    Transformer |                 |             
+| `7_trasnformer_EG`               |    RoBERTa     |    Transformer |               ✔ |                         
+
 ### Citing
 If you find our paper/code useful, please consider citing:
 
