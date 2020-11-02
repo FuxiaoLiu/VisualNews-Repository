@@ -32,7 +32,8 @@ There are also other model variants which are ablation studies.
 | `4_lstm_EA_EG`                   |           LSTM |               ✔ |               
 | `5_lstm_EA_EG_Pointer`           |           LSTM |               ✔ |                
 | `6_transformer`                  |    Transformer |                 |             
-| `7_trasnformer_EG`               |    Transformer |               ✔ |                         
+| `7_trasnformer_EG`               |    Transformer |               ✔ |
+| `8_transformer_EA_EG`            |    Transformer |               ✔ |   
 
 ### Citing
 If you find our paper/code useful, please consider citing:
