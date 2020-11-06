@@ -8,7 +8,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
 ### Model
 ![VisualNews Model](./visual1.png)
-There are also other model variants which are ablation studies.
+There is our model "5_lstm_EA_EG_Pointer".
 
 | Experiment                       | Language Model |    Entity Guide |         Pointer |
 | -------------------------------- | :-------------:| :--------------:| :--------------:|
