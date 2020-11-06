@@ -164,8 +164,13 @@ class MultiHeadAttentionLayer(nn.Module):
 
         #self.scale = torch.sqrt(torch.FloatTensor([self.head_dim])).to(device)
         self.scale = np.sqrt(self.head_dim)
+        self.l1 = nn.Linear(hid_dim * 2, hid_dim)
+        self.l2 = nn.Linear(hid_dim * 2, hid_dim)
+        self.sigmoid = nn.Sigmoid()
+        self.tanh = nn.Tanh()
 
     def forward(self, query, key, value, mask=None):
+        #print('query:', query.size())
         batch_size = query.shape[0]
 
         # query = [batch size, query len, hid dim]
@@ -215,6 +220,15 @@ class MultiHeadAttentionLayer(nn.Module):
         x = self.fc_o(x)
 
         # x = [batch size, query len, hid dim]
+
+        x = torch.cat([x, query], dim=2)
+        #print('x:', x.size())
+
+
+        x1 = self.sigmoid(self.l1(x))
+        x2 = self.l2(x)
+
+        x = torch.mul(x1, x2)
 
 
 
@@ -274,8 +288,9 @@ class Decoder(nn.Module):
         #self.scale = torch.sqrt(torch.FloatTensor([hid_dim])).to(device)
         self.scale = np.sqrt(hid_dim)
         self.l1 = nn.Linear(hid_dim*3, 1)
+        self.l2 = nn.Linear(hid_dim * 3, 1)
 
-    def forward(self, trg, enc_src, src, trg_mask, src_mask, imgs, enc_ref, ref_mask):
+    def forward(self, trg, enc_src, src, trg_mask, src_mask, imgs, enc_ref, reference, ref_mask):
         # trg = [batch size, trg len]
         # enc_src = [batch size, src len, hid dim]
         # trg_mask = [batch size, trg len]
@@ -284,7 +299,9 @@ class Decoder(nn.Module):
         batch_size = trg.shape[0]
         trg_len = trg.shape[1]
         index1 = src
+        index2 = reference
 
+        #print('imgs:', imgs.size())
         pos = torch.arange(0, trg_len).unsqueeze(0).repeat(batch_size, 1).to(device)
 
         # pos = [batch size, trg len]
@@ -295,35 +312,40 @@ class Decoder(nn.Module):
         # trg = [batch size, trg len, hid dim]
 
         for layer in self.layers:
-            trg, trg2, trg3, attention = layer(trg, enc_src, trg_mask, src_mask, imgs, enc_ref, ref_mask)
+            trg, trg_a, trg_v, trg_r, attention, attention2= layer(trg, enc_src, trg_mask, src_mask, imgs, enc_ref, ref_mask)
 
         # trg = [batch size, trg len, hid dim]
         # attention = [batch size, n heads, trg len, src len]
 
         output = self.fc_out(trg)
-        output1 = trg2
+
+        #output1 = trg2
         #output = F.log_softmax(output, dim=2)
 
         # output = [batch size, trg len, output dim]
 
-        #print('output:', output.size())
-        #print('attention:', attention.size())
 
         attention = torch.mean(attention, dim=1)
-        index1 = index1.expand(attention.size(1), index1.size(0), index1.size(1)).permute(1,0,2)
+        attention2 = torch.mean(attention2, dim=1)
 
+        index1 = index1.expand(attention.size(1), index1.size(0), index1.size(1)).permute(1,0,2)
         attn_value = torch.zeros([output.size(0), output.size(1), output.size(2)]).to(device)
         attn_value = attn_value.scatter_add_(2, index1, attention)
         #attn_value = F.log_softmax(attn_value, dim=2)
         #print('trg1:', trg1.size())
         #print('output1:', output1.size())
+        p = torch.sigmoid(self.l1(torch.cat([trg1, trg_a, trg_v], dim=2)))
 
-        p = torch.sigmoid(self.l1(torch.cat([trg1, output1, trg3], dim=2)))
-        output = p * output + (1 - p) * attn_value
+        index2 = index2.expand(attention2.size(1), index2.size(0), index2.size(1)).permute(1, 0, 2)
+        attn_value1 = torch.zeros([output.size(0), output.size(1), output.size(2)]).to(device)
+        attn_value1 = attn_value1.scatter_add_(2, index2, attention2)
+        # attn_value = F.log_softmax(attn_value, dim=2)
+        # print('trg1:', trg1.size())
+        # print('output1:', output1.size())
+        q = torch.sigmoid(self.l2(torch.cat([trg1, trg_r, trg_v], dim=2)))
+        output = (1 - p - q) * output + p * attn_value + q * attn_value1
 
 
-
-        #print('attention:', attention.size())
 
         return output, attention
 
@@ -359,7 +381,9 @@ class DecoderLayer(nn.Module):
         # src_mask = [batch size, src len]
 
         # self attention
+        #print('imgs:', imgs.size())
         imgs = self.relu(self.v(imgs))
+        #print('imgs:', imgs.size())
         _trg, _ = self.self_attention(trg, trg, trg, trg_mask)
 
         # dropout, residual connection and layer norm
@@ -372,14 +396,11 @@ class DecoderLayer(nn.Module):
         _trg0, attention = self.encoder_attention(trg, enc_src, enc_src, src_mask)
         _trg2, attention2 = self.encoder_attention2(trg, enc_ref, enc_ref, ref_mask)
         _trg1, attention1 = self.encoder_attention1(trg, imgs, imgs)
-        #print(_trg0.size())
-        #print(_trg1.size())
-        #_trg = self.relu(self.v1(torch.cat([_trg0, _trg1], dim=2)))
-        #print(_trg.size())
 
         # dropout, residual connection and layer norm
         trg1_ = _trg0
         trg2_ = _trg1
+        trg3_ = _trg2
         trg = self.enc_attn_layer_norm(trg + self.dropout(_trg0) + self.dropout(_trg1) + self.dropout(_trg2))
         #trg1 = self.enc_attn_layer_norm1(trg + self.dropout(_trg1))
 
@@ -394,7 +415,7 @@ class DecoderLayer(nn.Module):
         # trg = [batch size, trg len, hid dim]
         # attention = [batch size, n heads, trg len, src len]
 
-        return trg, trg1_, trg2_, attention
+        return trg, trg1_, trg2_, trg3_, attention, attention2
 
 
 class Seq2Seq(nn.Module):
@@ -455,7 +476,7 @@ class Seq2Seq(nn.Module):
         enc_ref = self.encoder(reference, ref_mask)
         # enc_src = [batch size, src len, hid dim]
 
-        output, attention = self.decoder(trg, enc_src, src, trg_mask, src_mask, imgs, enc_ref, ref_mask)
+        output, attention = self.decoder(trg, enc_src, src, trg_mask, src_mask, imgs, enc_ref, reference, ref_mask)
 
         # output = [batch size, trg len, output dim]
         # attention = [batch size, n heads, trg len, src len]
@@ -466,6 +487,7 @@ def translate_sentence(model, src, enc_ref, word_map, caplens, imgs, device):
     model.eval()
     src_mask = model.make_src_mask(src)
     ref_mask = model.make_src_mask(enc_ref)
+    reference = enc_ref
     with torch.no_grad():
         enc_src = model.encoder(src, src_mask)
         enc_ref = model.encoder(enc_ref, ref_mask)
@@ -477,7 +499,7 @@ def translate_sentence(model, src, enc_ref, word_map, caplens, imgs, device):
         trg_mask = model.make_trg_mask(trg_tensor)
 
         with torch.no_grad():
-            output, attention = model.decoder(trg_tensor, enc_src, src, trg_mask, src_mask, imgs, enc_ref, ref_mask)
+            output, attention = model.decoder(trg_tensor, enc_src, src, trg_mask, src_mask, imgs, enc_ref, reference, ref_mask)
             #output = model(sentence_tensor, trg_tensor)
 
         best_guess = output.argmax(2)[:, -1].item()
