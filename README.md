@@ -6,18 +6,21 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
 ![VisualNews Model](./visual1.png)
 
-### Requirements
-- Python 3
-- Pytorch > 1.0
-
 ### Data
 - Our dataset is available upon request. 
 - To access our dataset, please refer to this [demo](./VisualNews-Dataset.ipynb)
 - ![Examples from our VisualNews dataset](./sample.jpg)
 
-### Code and Training
-We are working on releasing code.
+### Code
+We are still working on releasing code.
 
+### Requirements
+- Python 3
+- Pytorch > 1.0
+
+### Processing
+
+### Training
 ```sh
 # Train the full model on VisualNews.
 CUDA_VISIBLE_DEVICES=0 python train.py
@@ -36,6 +39,8 @@ There are also other model variants which are ablation studies.
 | `7_trasnformer_EG`               |    Transformer |               ✔ |                 |
 | `8_transformer_EA_EG`            |    Transformer |               ✔ |                 |  
 | `9_transformer_EA_EG_Pointer`    |    Transformer |               ✔ |               ✔ | 
+
+### Postprocessing
 
 ### Citing
 If you find our paper/code useful, please consider citing:
