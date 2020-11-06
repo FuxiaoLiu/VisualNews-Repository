@@ -12,13 +12,13 @@ There is our model "5_lstm_EA_EG_Pointer".
 
 | Experiment                       | Language Model |    Entity Guide |Pointer Mechanism|    Tag_Cleaning |
 | -------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
-| `1_lstm_basic`                   |           LSTM |                 |                 |               ✔ |
-| `2_lstm_EA`                      |           LSTM |                 |                 |               ✔ |                
-| `3_lstm_EG`                      |           LSTM |               ✔ |                 |               ✔ |                  
+| `1_lstm_basic`                   |           LSTM |                 |                 |                 |
+| `2_lstm_EA`                      |           LSTM |                 |                 |                 |                
+| `3_lstm_EG`                      |           LSTM |               ✔ |                 |                 |                  
 | `4_lstm_EA_EG`                   |           LSTM |               ✔ |                 |               ✔ |               
 | `5_lstm_EA_EG_Pointer`           |           LSTM |               ✔ |               ✔ |               ✔ |                
-| `6_transformer`                  |    Transformer |                 |                 |               ✔ |             
-| `7_trasnformer_EG`               |    Transformer |               ✔ |                 |               ✔ |
+| `6_transformer`                  |    Transformer |                 |                 |                 |             
+| `7_trasnformer_EG`               |    Transformer |               ✔ |                 |                 |
 | `8_transformer_EA_EG`            |    Transformer |               ✔ |                 |               ✔ |  
 | `9_transformer_EA_EG_Pointer`    |    Transformer |               ✔ |               ✔ |               ✔ | 
 
