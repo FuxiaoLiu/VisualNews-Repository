@@ -24,16 +24,17 @@ CUDA_VISIBLE_DEVICES=0 python train.py
 
 There are also other model variants which are ablation studies.
 
-| Experiment                       | Language Model |    Entity Guide |
-| -------------------------------- | :-------------:| :--------------:|
-| `1_lstm_basic`                   |           LSTM |                 |
-| `2_lstm_EA`                      |           LSTM |                 |                 
-| `3_lstm_EG`                      |           LSTM |               ✔ |                  
-| `4_lstm_EA_EG`                   |           LSTM |               ✔ |               
-| `5_lstm_EA_EG_Pointer`           |           LSTM |               ✔ |                
-| `6_transformer`                  |    Transformer |                 |             
-| `7_trasnformer_EG`               |    Transformer |               ✔ |
-| `8_transformer_EA_EG`            |    Transformer |               ✔ |   
+| Experiment                       | Language Model |    Entity Guide |         Pointer |
+| -------------------------------- | :-------------:| :--------------:| :--------------:|
+| `1_lstm_basic`                   |           LSTM |                 |                 |
+| `2_lstm_EA`                      |           LSTM |                 |                 |                
+| `3_lstm_EG`                      |           LSTM |               ✔ |                 |                  
+| `4_lstm_EA_EG`                   |           LSTM |               ✔ |                 |               
+| `5_lstm_EA_EG_Pointer`           |           LSTM |               ✔ |               ✔ |                
+| `6_transformer`                  |    Transformer |                 |                 |             
+| `7_trasnformer_EG`               |    Transformer |               ✔ |                 |
+| `8_transformer_EA_EG`            |    Transformer |               ✔ |                 |  
+| `9_transformer_EA_EG_Pointer`    |    Transformer |               ✔ |               ✔ | 
 
 ### Citing
 If you find our paper/code useful, please consider citing:
