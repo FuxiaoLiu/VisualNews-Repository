@@ -10,17 +10,18 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 ![VisualNews Model](./visual3.png)
 Our model was modified. Please wait, I will upload the new code as soon as possible!
 
-| Experiment                       | Language Model |    Entity Guide |Pointer Mechanism|    Tag_Cleaning |
-| -------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
-| `1_lstm_basic`                   |           LSTM |                 |                 |                 |
-| `2_lstm_EA`                      |           LSTM |                 |                 |                 |                
-| `3_lstm_EG`                      |           LSTM |               ✔ |                 |                 |                  
-| `4_lstm_EA_EG`                   |           LSTM |               ✔ |                 |               ✔ |               
-| `5_lstm_EA_EG_Pointer`           |           LSTM |               ✔ |               ✔ |               ✔ |                
-| `6_transformer`                  |    Transformer |                 |                 |                 |             
-| `7_trasnformer_EG`               |    Transformer |               ✔ |                 |                 |
-| `8_transformer_EA_EG`            |    Transformer |               ✔ |                 |               ✔ |  
-| `9_transformer_EA_EG_Pointer`    |    Transformer |               ✔ |               ✔ |               ✔ | 
+| Experiment                       | Language Model |    Entity Guide |Pointer Mechanism|Posiion Embedding| Visual selective|
+| -------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:| :--------------:|
+| `1_lstm_basic`                   |           LSTM |                 |                 |                 |                 |
+| `2_lstm_EA`                      |           LSTM |                 |                 |                 |                 |                
+| `3_lstm_EG`                      |           LSTM |               ✔ |                 |                 |                 |                 
+| `4_lstm_EA_EG`                   |           LSTM |               ✔ |                 |                 |                 |              
+| `5_lstm_EA_EG_Pointer`           |           LSTM |               ✔ |               ✔ |                 |                 |          
+| `6_transformer`                  |    Transformer |                 |                 |                 |                 |             
+| `7_trasnformer_EG`               |    Transformer |               ✔ |                 |                 |                 |
+| `8_transformer_EG_VS`            |    Transformer |               ✔ |                 |                 |                ✔|  
+| `9_transformer_EG_VS_Pointer`    |    Transformer |               ✔ |               ✔ |                 |                ✔| 
+| `10_transformer_EG_VS_Pointer_PE`|    Transformer |               ✔ |               ✔ |               ✔ |                ✔| 
 
 
 
