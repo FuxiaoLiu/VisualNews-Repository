@@ -7,7 +7,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
 
 ### Model
-![VisualNews Model](./visual3.png)
+![VisualNews Model](./visual1.png)
 Our model was modified. Please wait, I will upload the new code as soon as possible!
 
 | Experiment                       | Language Model |    Entity Guide |Pointer Mechanism|Posiion Embedding| Visual selective|
