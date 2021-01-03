@@ -8,7 +8,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
 ### Model
 ![VisualNews Model](./visual1.png)
-Our model was modified. Please wait, I will upload the new code as soon as possible!
+Our model was modified. Please wait, I will upload the new code!
 
 | Experiment                       | Language Model |    Entity Guide |Pointer Mechanism|Posiion Embedding| Visual selective|
 | -------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:| :--------------:|
@@ -37,8 +37,9 @@ Our model was modified. Please wait, I will upload the new code as soon as possi
 ### Training
 ```sh
 # Train the full model on VisualNews.
-CUDA_VISIBLE_DEVICES=0 python train.py
+CUDA_VISIBLE_DEVICES=0 python main.py
 ```
+I will updated the training details according to the new model.
 
 ### Citing
 If you find our paper/code useful, please consider citing:
