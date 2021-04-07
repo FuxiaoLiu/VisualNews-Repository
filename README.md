@@ -40,7 +40,7 @@ Our model was modified. Please wait, I will upload the new code!
 # Train the full model on VisualNews.
 CUDA_VISIBLE_DEVICES=0 python main.py
 ```
-I will update training details once our paper is accepted.
+I will not update the old code since the model was changed. Once our paper is accepted, I will upload the new-version paper and code.
 
 ### Citing
 If you find our paper/code useful, please consider citing:
