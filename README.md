@@ -8,7 +8,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
 ### Model
 ![VisualNews Model](./visual2.png)
-Our model was modified. Please wait, I will upload the new code!
+/*
 
 | Experiment                          | Language Model |    Entity Guide |Pointer Mechanism|Posiion Embedding| Visual selective|      Memory Cell|
 | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:| :--------------:| :--------------:|
@@ -24,7 +24,7 @@ Our model was modified. Please wait, I will upload the new code!
 | `10_transformer_EG_VS_Pointer_PE`   |    Transformer |               ✔ |               ✔ |               ✔ |                ✔|                 | 
 | `11_transformer_EG_VS_Pointer_PE_MC`|    Transformer |               ✔ |               ✔ |               ✔ |                ✔|                ✔| 
 
-
+*/
 
 ### Getting Data
 - Our dataset is available upon request. 
