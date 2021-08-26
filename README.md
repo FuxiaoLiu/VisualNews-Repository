@@ -7,13 +7,13 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 ### Getting Data
 - Our dataset is available upon request. 
 - To access our dataset, please refer to this [demo](./VisualNews-Dataset.ipynb)
-- ![Examples from our VisualNews dataset](./sample.jpg)
+![Examples from our VisualNews dataset](./sample.jpg)
 
 ### Dataset Analysis
 
 |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
 | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
-| Number of Caption                   |         602572 |          198186 |          151090 |          128744 |
+| Number of Captions                   |         602572 |          198186 |          151090 |          128744 |
 | Number of PERSON_                   |    435629/0.72 |      92758/0.46 |     127548/0.84 |      89811/0.69 | 
 | Number of ORG_                      |    225296/0.37 |      56783/0.29 |      86276/0.57 |      55489/0.43 | 
 | Number of GPE_                      |    224039/0.37 |      56897/0.29 |      78653/0.52 |      63790/0.50 | 
