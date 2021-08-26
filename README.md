@@ -11,7 +11,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
 ### Dataset Analysis
 
-|                                     |       Guardian |             BBC |        USA TODAY|.  WashingtonPost|
+|                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
 | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
 | Number of Caption                   |         602572 |          198186 |          151090 |          128744 |
 | Number of PERSON_                   |    435629/0.72 |      92758/0.46 |     127548/0.84 |      89811/0.69 | 
