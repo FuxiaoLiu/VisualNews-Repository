@@ -8,23 +8,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
 ### Model
 ![VisualNews Model](./visual2.png)
-/*
 
-| Experiment                          | Language Model |    Entity Guide |Pointer Mechanism|Posiion Embedding| Visual selective|      Memory Cell|
-| ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:| :--------------:| :--------------:|
-| `1_lstm_basic`                      |           LSTM |                 |                 |                 |                 |                 |
-| `2_lstm_EA`                         |           LSTM |                 |                 |                 |                 |                 |                
-| `3_lstm_EG`                         |           LSTM |               ✔ |                 |                 |                 |                 |                 
-| `4_lstm_EA_EG`                      |           LSTM |               ✔ |                 |                 |                 |                 |              
-| `5_lstm_EA_EG_Pointer`              |           LSTM |               ✔ |               ✔ |                 |                 |                 |          
-| `6_transformer`                     |    Transformer |                 |                 |                 |                 |                 |             
-| `7_trasnformer_EG`                  |    Transformer |               ✔ |                 |                 |                 |                 |
-| `8_transformer_EG_VS`               |    Transformer |               ✔ |                 |                 |                ✔|                 |  
-| `9_transformer_EG_VS_Pointer`       |    Transformer |               ✔ |               ✔ |                 |                ✔|                 | 
-| `10_transformer_EG_VS_Pointer_PE`   |    Transformer |               ✔ |               ✔ |               ✔ |                ✔|                 | 
-| `11_transformer_EG_VS_Pointer_PE_MC`|    Transformer |               ✔ |               ✔ |               ✔ |                ✔|                ✔| 
-
-*/
 
 ### Getting Data
 - Our dataset is available upon request. 
