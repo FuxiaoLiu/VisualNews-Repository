@@ -39,12 +39,7 @@ Statistics of named entities of four news agencies in Visual News dataset. For e
 - Python 3
 - Pytorch > 1.0
 
-### Training
-```sh
-# Train the full model on VisualNews.
-CUDA_VISIBLE_DEVICES=0 python main.py
-```
-I will update the code ASAP. If you have any questions, please email: fl3es@virginia.edu
+I will update the code. If you have any questions, please email: fl3es@virginia.edu
 
 ### Citing
 If you find our paper/code useful, please consider citing:
