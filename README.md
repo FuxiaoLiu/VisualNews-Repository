@@ -36,12 +36,12 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
   - CIDEr scores of the same captioning model on different train (row) and test (columns) splits. News images and captions from different agencies have different characters, leading to a performance decrease when training set and test set are not from the same agency.
 
-  |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
-  | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
-  | Guardian                            |            1.0 |             0.6 |             0.6 |             0.7 |
-  | BBC                                 |            1.9 |             1.6 |             1.7 |             0.7 | 
-  | USA TODAY                           |            1.3 |             1.2 |             3.7 |             2.7 |
-  | BBC                                 |            1.2 |             1.2 |             2.0 |             2.5 | 
+   |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
+   | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
+   | Guardian                            |            1.0 |             0.6 |             0.6 |             0.7 |
+   | BBC                                 |            1.9 |             1.6 |             1.7 |             0.7 | 
+   | USA TODAY                           |            1.3 |             1.2 |             3.7 |             2.7 |
+   | BBC                                 |            1.2 |             1.2 |             2.0 |             2.5 | 
 
 ### Requirements
 - Python 3
