@@ -35,6 +35,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
    | Number of LANGUAGE_                 |       920/0.00 |        323/0.00 |         57/0.00 |        127/0.00 |
 
   - CIDEr scores of the same captioning model on different train (row) and test (columns) splits. News images and captions from different agencies have different characters, leading to a performance decrease when training set and test set are not from the same agency.
+
   |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
   | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
   | Guardian                            |            1.0 |             0.6 |             0.6 |             0.7 |
