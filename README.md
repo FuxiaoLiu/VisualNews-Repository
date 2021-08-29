@@ -13,7 +13,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
  - Statistics of named entities of four news agencies in Visual News dataset. For example, The Guardian agency has 602,572 captions and 435,629 PERSON entities, thus each caption will on average have 0.72 PERSON entities. However, each caption only has 0.46 PERSON entities on average in BBC agency. This difference also demonstrates the diversity of our dataset.
 
- - |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
+   |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
    | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
    | Number of Captions                   |         602572 |          198186 |          151090 |          128744 |
    | Number of PERSON_                   |    435629/0.72 |      92758/0.46 |     127548/0.84 |      89811/0.69 | 
