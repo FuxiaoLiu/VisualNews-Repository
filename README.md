@@ -15,7 +15,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
    |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
    | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
-   | Number of Captions                   |         602572 |          198186 |          151090 |          128744 |
+   | Number of Captions                  |         602572 |          198186 |          151090 |          128744 |
    | Number of PERSON_                   |    435629/0.72 |      92758/0.46 |     127548/0.84 |      89811/0.69 | 
    | Number of ORG_                      |    225296/0.37 |      56783/0.29 |      86276/0.57 |      55489/0.43 | 
    | Number of GPE_                      |    224039/0.37 |      56897/0.29 |      78653/0.52 |      63790/0.50 | 
@@ -34,7 +34,13 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
    | Number of PERCENT_                  |        81/0.00 |         17/0.00 |         64/0.00 |        184/0.00 | 
    | Number of LANGUAGE_                 |       920/0.00 |        323/0.00 |         57/0.00 |        127/0.00 |
 
-  - Statistics
+  - CIDEr scores of the same captioning model on different train (row) and test (columns) splits. News images and captions from different agencies have different characters, leading to a performance decrease when training set and test set are not from the same agency.
+  |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
+  | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
+  | Guardian                            |            1.0 |             0.6 |             0.6 |             0.7 |
+  | BBC                                 |            1.9 |             1.6 |             1.7 |             0.7 | 
+  | USA TODAY                           |            1.3 |             1.2 |             3.7 |             2.7 |
+  | BBC                                 |            1.2 |             1.2 |             2.0 |             2.5 | 
 
 ### Requirements
 - Python 3
