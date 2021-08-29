@@ -13,26 +13,26 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 
  - Statistics of named entities of four news agencies in Visual News dataset. For example, The Guardian agency has 602,572 captions and 435,629 PERSON entities, thus each caption will on average have 0.72 PERSON entities. However, each caption only has 0.46 PERSON entities on average in BBC agency. This difference also demonstrates the diversity of our dataset.
 
-|                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
-| ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
-| Number of Captions                   |         602572 |          198186 |          151090 |          128744 |
-| Number of PERSON_                   |    435629/0.72 |      92758/0.46 |     127548/0.84 |      89811/0.69 | 
-| Number of ORG_                      |    225296/0.37 |      56783/0.29 |      86276/0.57 |      55489/0.43 | 
-| Number of GPE_                      |    224039/0.37 |      56897/0.29 |      78653/0.52 |      63790/0.50 | 
-| Number of DATE_                     |    140325/0.23 |      43938/0.22 |      71266/0.47 |      37528/0.29 |  
-| Number of CARDINAL_                 |     77068/0.13 |      27729/0.14 |      25992/0.17 |      11719/0.09 |   
-| Number of FAC_                      |     38807/0.06 |       7628/0.04 |      23847/0.15 |      14508/0.11 |   
-| Number of NORP_                     |     62865/0.10 |      19997/0.10 |      16103/0.11 |      20124/0.16 | 
-| Number of ORDINAL_                  |     22140/0.04 |       5268/0.03 |      13177/0.09 |       4927/0.04 | 
-| Number of LOC_                      |     14215/0.02 |       2181/0.01 |       9664/0.06 |       2928/0.02 |
-| Number of PRODUCT_                  |     24268/0.04 |       6549/0.03 |       8907/0.06 |       6680/0.05 | 
-| Number of TIME_                     |     12116/0.02 |       3259/0.02 |       5220/0.03 |       3134/0.02 | 
-| Number of WORK_OF_ART_              |      8664/0.01 |       1500/0.01 |       2953/0.02 |       1810/0.01 | 
-| Number of QUANTITY_                 |      4077/0.01 |       1658/0.01 |       1414/0.01 |        957/0.01 | 
-| Number of LAW_                      |      1977/0.00 |        347/0.00 |       1083/0.01 |        698/0.01 | 
-| Number of MONEY_                    |      1022/0.00 |        350/0.00 |        144/0.00 |         93/0.00 | 
-| Number of PERCENT_                  |        81/0.00 |         17/0.00 |         64/0.00 |        184/0.00 | 
-| Number of LANGUAGE_                 |       920/0.00 |        323/0.00 |         57/0.00 |        127/0.00 |
+ - |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
+   | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
+   | Number of Captions                   |         602572 |          198186 |          151090 |          128744 |
+   | Number of PERSON_                   |    435629/0.72 |      92758/0.46 |     127548/0.84 |      89811/0.69 | 
+   | Number of ORG_                      |    225296/0.37 |      56783/0.29 |      86276/0.57 |      55489/0.43 | 
+   | Number of GPE_                      |    224039/0.37 |      56897/0.29 |      78653/0.52 |      63790/0.50 | 
+   | Number of DATE_                     |    140325/0.23 |      43938/0.22 |      71266/0.47 |      37528/0.29 |  
+   | Number of CARDINAL_                 |     77068/0.13 |      27729/0.14 |      25992/0.17 |      11719/0.09 |   
+   | Number of FAC_                      |     38807/0.06 |       7628/0.04 |      23847/0.15 |      14508/0.11 |   
+   | Number of NORP_                     |     62865/0.10 |      19997/0.10 |      16103/0.11 |      20124/0.16 | 
+   | Number of ORDINAL_                  |     22140/0.04 |       5268/0.03 |      13177/0.09 |       4927/0.04 | 
+   | Number of LOC_                      |     14215/0.02 |       2181/0.01 |       9664/0.06 |       2928/0.02 |
+   | Number of PRODUCT_                  |     24268/0.04 |       6549/0.03 |       8907/0.06 |       6680/0.05 | 
+   | Number of TIME_                     |     12116/0.02 |       3259/0.02 |       5220/0.03 |       3134/0.02 | 
+   | Number of WORK_OF_ART_              |      8664/0.01 |       1500/0.01 |       2953/0.02 |       1810/0.01 | 
+   | Number of QUANTITY_                 |      4077/0.01 |       1658/0.01 |       1414/0.01 |        957/0.01 | 
+   | Number of LAW_                      |      1977/0.00 |        347/0.00 |       1083/0.01 |        698/0.01 | 
+   | Number of MONEY_                    |      1022/0.00 |        350/0.00 |        144/0.00 |         93/0.00 | 
+   | Number of PERCENT_                  |        81/0.00 |         17/0.00 |         64/0.00 |        184/0.00 | 
+   | Number of LANGUAGE_                 |       920/0.00 |        323/0.00 |         57/0.00 |        127/0.00 |
 
   - Statistics
 
