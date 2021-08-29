@@ -9,7 +9,9 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 - To access our dataset, please refer to this [demo](./VisualNews-Dataset.ipynb)
 ![Examples from our VisualNews dataset](./sample.jpg)
 
-### Dataset Analysis
+### Diversity Analysis
+
+ - Statistics of named entities of four news agencies in Visual News dataset. For example, The Guardian agency has 602,572 captions and 435,629 PERSON entities, thus each caption will on average have 0.72 PERSON entities. However, each caption only has 0.46 PERSON entities on average in BBC agency. This difference also demonstrates the diversity of our dataset.
 
 |                                     |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
 | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
@@ -32,8 +34,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 | Number of PERCENT_                  |        81/0.00 |         17/0.00 |         64/0.00 |        184/0.00 | 
 | Number of LANGUAGE_                 |       920/0.00 |        323/0.00 |         57/0.00 |        127/0.00 |
 
-Statistics of named entities of four news agencies in Visual News dataset. For example, The Guardian agency has 602,572 captions and 435,629 PERSON entities, thus each caption will on average have 0.72 PERSON entities. However, each caption only has 0.46 PERSON entities on average in BBC agency. This difference also demonstrates the diversity of our dataset.
-
+  - Statistics
 
 ### Requirements
 - Python 3
