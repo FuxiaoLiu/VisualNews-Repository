@@ -44,7 +44,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
    | BBC                                 |            1.2 |             1.2 |             2.0 |             2.5 | 
    
    
-   - Statistics of named entities from each source and calculate their overlap
+ - Statistics of named entities from each source and calculate their overlap
 
    | 'PERSON'                            |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
    | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
