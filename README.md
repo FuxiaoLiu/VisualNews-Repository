@@ -44,7 +44,7 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
    | WashingtonPost                      |            1.2 |             1.2 |             2.0 |             2.5 | 
    
    
- - Select 50000 captions from each source. USA TODAY has 17013 unique 'PERSON' entities, WashingtonPost has 16261, BBC has 12726 and Guardian has 17745. Statistics of named entities from each source and calculate their overlap. Statistics of other named entities will be updated soon.
+ - Select 50000 captions from each source. USA TODAY has 17013 unique 'PERSON' entities, WashingtonPost has 16261, BBC has 12726 and Guardian has 17745. Statistics of other named entities from each source and calculate their overlap. Statistics of other named entities will be updated soon.
 
    | 'PERSON'                            |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
    | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
