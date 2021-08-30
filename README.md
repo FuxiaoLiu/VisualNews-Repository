@@ -41,17 +41,17 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
    | Guardian                            |            1.0 |             0.6 |             0.6 |             0.7 |
    | BBC                                 |            1.9 |             1.6 |             1.7 |             0.7 | 
    | USA TODAY                           |            1.3 |             1.2 |             3.7 |             2.7 |
-   | BBC                                 |            1.2 |             1.2 |             2.0 |             2.5 | 
+   | WashingtonPost                      |            1.2 |             1.2 |             2.0 |             2.5 | 
    
    
- - Statistics of named entities from each source and calculate their overlap
+ - Select 50000 captions from each source. USA TODAY has 17013 unique 'PERSON' entities, WashingtonPost has 16261, BBC has 12726 and Guardian has 17745. Statistics of named entities from each source and calculate their overlap. Statistics of other named entities will be updated soon.
 
    | 'PERSON'                            |       Guardian |             BBC |        USA TODAY|   WashingtonPost|
    | ----------------------------------- | :-------------:| :--------------:| :--------------:| :--------------:|
-   | Guardian                            |                |                 |                 |                 |
-   | BBC                                 |                |                 |                 |                 | 
-   | USA TODAY                           |                |                 |                 |                 |
-   | BBC                                 |                |                 |                 |                 | 
+   | Guardian                            |          17745 |        **2345** |            2048 |            1997 |
+   | BBC                                 |       **2345** |           12726 |            1297 |            1413 | 
+   | USA TODAY                           |           2048 |            1297 |           17013 |        **2957** |
+   | WashingtonPost                      |           1997 |            1413 |        **2957** |           16261 | 
    
 
 ### Requirements
