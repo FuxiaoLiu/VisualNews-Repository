@@ -58,7 +58,8 @@ In this paper we propose VisualNews-Captioner, an entity-aware model for the tas
 - Python 3
 - Pytorch > 1.0
 
-This repo is under construction and we will add the code shortly. If you have any questions, please email: fl3es@virginia.edu
+### Model
+This repo is under construction. If you have any questions, please email: fl3es@virginia.edu
 
 ### Citing
 If you find our paper/code useful, please consider citing:
