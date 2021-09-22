@@ -11,3 +11,4 @@ result = soup.get_text()
 import re
 s = re.sub(r'[^\w\s]','',caption)
 #filter punctuations
+#result: PHOENIX  Arizona state officials have paid 3 million to settle a lawsuit from a former teacher who was raped and beaten by an inmate in January 2014 records obtained Monday by The Arizona Republic show
