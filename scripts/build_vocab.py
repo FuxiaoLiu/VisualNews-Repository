@@ -34,11 +34,8 @@ def build_vocab(data_file, caption_type, threshold):
     max_seq_length = 0
     counter = Counter()
     print(len(data))
-    #for idx, elem in enumerate(data):
     for idx in range(len(data)):
-        #caption = elem[caption_type]
         caption = data[idx]['caption']
-        #tokens = nltk.tokenize.word_tokenize(caption.lower())
         tokens = caption.lower().split(' ')
         max_seq_length = max(len(tokens), max_seq_length)
         counter.update(tokens)
@@ -46,10 +43,8 @@ def build_vocab(data_file, caption_type, threshold):
            print("[{}/{} captions tokenized]".format(idx, len(data)))
 
     print('max_seq_length: {}'.format(max_seq_length))
-    #print(counter)
     words = [word for word, cnt in counter.items() if cnt >= threshold]
     vocab = Vocabulary()
-    #vocab.add_word('<unk1>')
     vocab.add_word('<pad>')  # make sure <pad> is the first token
     vocab.add_word('<start>')
     vocab.add_word('<end>')
@@ -71,11 +66,9 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--caption_path', type=str, default='../visualdata/train_v.json', help='path for train annotation file')
-    parser.add_argument('--vocab_path', type=str, default='./vocab/vocab_tmp.pkl',help='path for saving vocabulary wrapper')
-    parser.add_argument('--caption_type', type=str, default='caption',help='caption, cleaned_caption, template_toke_coarse, template_toke_fine, \
-                        compressed_caption_1, compressed_caption_2')
-    parser.add_argument('--threshold', type=int, default=5000, help='minimum word count threshold')
+    parser.add_argument('--caption_path', type=str, default='', help='path for train annotation file')
+    parser.add_argument('--vocab_path', type=str, default='',help='path for saving vocabulary wrapper')
+    parser.add_argument('--threshold', type=int, default=0, help='minimum word count threshold')
 
     args = parser.parse_args()
     main(args)
