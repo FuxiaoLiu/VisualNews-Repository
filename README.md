@@ -61,7 +61,7 @@ We propose Visual News Captioner, an entity-aware model for the task of news ima
 
 ### Model
 This repo is under construction. If you have any questions, please email: fl3es@virginia.edu
-(./visual2.jpg)
+![Examples from our VisualNews dataset](./visual2.png)
 
 ### Citing
 If you find our paper/code useful, please consider citing:
