@@ -7,7 +7,7 @@ We propose Visual News Captioner, an entity-aware model for the task of news ima
 ### Getting Data
 - Our dataset is available upon request. Please contact fl3es@virginia.edu
 - To access our dataset, please refer to this [demo](./VisualNews-Dataset.ipynb)
-- We will release the keyphrases for the news articles. Stay tuned!
+- Some of the articles have the image location information and keyphrases. We will release it soon. Stay tuned!
 ![Examples from our VisualNews dataset](./sample.jpg)
 
 ### Diversity Analysis
