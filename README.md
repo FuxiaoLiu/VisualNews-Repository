@@ -9,10 +9,7 @@ Paper [PPT].(./visualnews_ppt.pdf)
 ### Dataset Examples
 ![Examples from our VisualNews dataset](./sample.jpg)
 
-### Advantages of Our VisualNews
-## Larger!
-![Examples from our VisualNews dataset](./largest.png)
-## More Diverse!
+## VisualNews is more Diverse!
 ![Examples from our VisualNews dataset](./diverse.png)
 
 ### Getting Data
