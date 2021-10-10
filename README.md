@@ -11,9 +11,9 @@ Paper [PPT].(./visualnews_ppt.pdf)
 
 ### Advantages of Our VisualNews
 ## Larger!
-![Examples from our VisualNews dataset](./largest.pdf)
+![Examples from our VisualNews dataset](./largest.jpg)
 ## More Diverse!
-![Examples from our VisualNews dataset](./diverse.pdf)
+![Examples from our VisualNews dataset](./diverse.jpg)
 
 ### Getting Data
 - Our dataset is available upon request. Please contact fl3es@virginia.edu
