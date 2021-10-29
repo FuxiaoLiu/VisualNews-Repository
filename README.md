@@ -27,7 +27,7 @@ This repo is under construction. If you have any questions, please email: fl3es@
 ![Examples from our VisualNews dataset](./model.png)
 
 ## Resourse
-- Our paper PPT is [here](./visualnews_ppt.pdf)
+- More details of the paper is [here](./visualnews_ppt.pdf)
 
 ## Citing
 If you find our paper/code useful, please consider citing:
