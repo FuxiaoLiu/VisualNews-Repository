@@ -1,8 +1,3 @@
-"""
-This script should be run from root directory of this codebase:
-https://github.com/tylin/coco-caption
-"""
-
 from pycocotools.coco import COCO
 from pycocoevalcap1.eval import COCOEvalCap
 import json
