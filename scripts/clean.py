@@ -33,8 +33,11 @@ lines = f.read()
 print(lines)
 
 
-# Statistic of words frequency in the list
+# Statistic of words frequency in the list, and turn into dict
 from collections import Counter
 a = [1,2,1,3,1,2]
 result = Counter(a)
 print(result)
+result = dict(result)
+for key,value in result.items():
+    print(key,value
