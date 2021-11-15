@@ -40,4 +40,4 @@ result = Counter(a)
 print(result)
 result = dict(result)
 for key,value in result.items():
-    print(key,value
+    print(key,value)
