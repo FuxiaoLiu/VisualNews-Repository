@@ -27,7 +27,8 @@ This repo is under construction. If you have any questions, please email: fl3es@
 ![Examples from our VisualNews dataset](./model.png)
 
 ## Resourse
-- More details of the paper is [PPT](./visualnews_ppt.pdf) [Video](https://underline.io/lecture/37789-visual-news-benchmark-and-challenges-in-news-image-captioning)
+- [PPT](./visualnews_ppt.pdf) 
+- [Video](https://underline.io/lecture/37789-visual-news-benchmark-and-challenges-in-news-image-captioning)
 
 ## Citing
 If you find our paper/code useful, please consider citing:
