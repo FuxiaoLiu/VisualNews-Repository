@@ -40,4 +40,12 @@ result = Counter(a)
 print(result)
 result = dict(result)
 for key,value in result.items():
-    print(key,value)
+    print(key,value）
+          
+# Read and Write json
+with open('data.json', 'w') as f:
+    json.dump(data, f)
+
+# Reading data back
+with open('data.json', 'r') as f:
+    data = json.load(f)
