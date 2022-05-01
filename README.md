@@ -23,7 +23,7 @@ We propose Visual News Captioner, an entity-aware model for the task of news ima
 - Pytorch > 1.0
 
 ## Model
-This repo is under construction. If you have any questions, please email: fl3es@virginia.edu
+If you have any questions, please email: fl3es@virginia.edu
 ![Examples from our VisualNews dataset](./model.png)
 
 ## Resourse
