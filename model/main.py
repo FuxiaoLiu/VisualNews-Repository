@@ -1,4 +1,4 @@
-# I just retrieve the raw code from my old server. I will make it easy to read and repair the bugs.
+# I just retrieve the raw code from my old server. I will make it easy to read and upload other files.
 
 
 # -*- coding: UTF-8 -*-
