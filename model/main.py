@@ -16,7 +16,7 @@ from nltk.translate.bleu_score import corpus_bleu
 from myeval import myeval
 from build_vocab import Vocabulary
 import numpy as np
-from utils2 import *
+from utils import *
 import torch.optim as optim
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
