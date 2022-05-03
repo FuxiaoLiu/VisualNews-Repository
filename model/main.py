@@ -1,4 +1,5 @@
 # I just retrieve the raw code from my old server. I will make it easy to read and upload other files.
+#python main.py
 
 
 # -*- coding: UTF-8 -*-
