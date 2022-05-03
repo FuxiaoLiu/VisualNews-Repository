@@ -29,20 +29,20 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--data_name', type=str, default='Attend')
-parser.add_argument('--model_path', type=str, default='./checkpoint3' , help='path for saving trained models')
+parser.add_argument('--data_name', type=str, default='')
+parser.add_argument('--model_path', type=str, default='' , help='path for saving trained models')
 parser.add_argument('--image_size', type=int, default=256, help='size for resize images')
 parser.add_argument('--crop_size', type=int, default=224 ,
                     help='size for randomly cropping images')
-parser.add_argument('--vocab_path', type=str, default='./vocab/vocab_g.pkl', help='path for vocabulary wrapper')#vocab_good22.pkl
-parser.add_argument('--vocab1_path', type=str, default='./vocab/vocab_g.pkl', help='article vocab')
-parser.add_argument('--image_dir', type=str, default='/p/newscaptioning/data', help='directory for resized images')
-#parser.add_argument('--image_dir_val', type=str, default='data/val2014_resized', help='directory for resized images')
-parser.add_argument('--ann_path', type=str, default='/u/fl3es/attend/visualdata', help='path for annotation json file')
-#parser.add_argument('--caption_path_val', type=str, default='data/annotations/captions_val2014.json', help='path for val annotation json file')
+parser.add_argument('--vocab_path', type=str, default='', help='path for vocabulary wrapper')#vocab_good22.pkl
+parser.add_argument('--vocab1_path', type=str, default='', help='article vocab')
+parser.add_argument('--image_dir', type=str, default='', help='directory for resized images')
+#parser.add_argument('--image_dir_val', type=str, default='', help='directory for resized images')
+parser.add_argument('--ann_path', type=str, default='', help='path for annotation json file')
+#parser.add_argument('--caption_path_val', type=str, default='', help='path for val annotation json file')
 parser.add_argument('--log_step', type=int , default=100, help='step size for prining log info')
 parser.add_argument('--save_step', type=int , default=1000, help='step size for saving trained models')
-parser.add_argument('--gts_file_dev', type=str, default='../visualdata/devs_gnew.json')
+parser.add_argument('--gts_file_dev', type=str, default='')
 
 # Model parameters
 parser.add_argument('--embed_dim', type=int , default=512, help='dimension of word embedding vectors')
@@ -54,13 +54,12 @@ parser.add_argument('--epochs', type=int, default=150)
 parser.add_argument('--epochs_since_improvement', type=int, default=0)
 parser.add_argument('--batch_size', type=int, default=128)
 parser.add_argument('--num_workers', type=int, default=6)
-parser.add_argument('--encoder_lr', type=float, default=0.00006)
-parser.add_argument('--decoder_lr', type=float, default=0.0007)#1.8 57
-parser.add_argument('--checkpoint', type=str, default= './checkpoint3/BEST_model.pth.tar' , help='path for checkpoints')
-#'./checkpoint/BEST_model.pth.tar'
+parser.add_argument('--encoder_lr', type=float, default=0.0005)
+parser.add_argument('--decoder_lr', type=float, default=0.0005)
+parser.add_argument('--checkpoint', type=str, default= '' , help='path for checkpoints')
 parser.add_argument('--grad_clip', type=float, default=5.)
 parser.add_argument('--alpha_c', type=float, default=1.)
-parser.add_argument('--best_bleu4', type=float, default=0.258)
+parser.add_argument('--best_cider', type=float, default=0.)
 parser.add_argument('--fine_tune_encoder', type=bool, default=False , help='fine-tune encoder')
 
 args = parser.parse_args()
