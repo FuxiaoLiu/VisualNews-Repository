@@ -9,7 +9,7 @@ import torch
 import torch.nn as nn
 from torchvision import transforms
 from tqdm import tqdm
-from model1 import Encoder, Decoder, EncoderLayer, MultiHeadAttentionLayer, PositionwiseFeedforwardLayer, DecoderLayer, Seq2Seq, translate_sentence, bleu, EncoderCNN
+from model import Encoder, Decoder, EncoderLayer, MultiHeadAttentionLayer, PositionwiseFeedforwardLayer, DecoderLayer, Seq2Seq, translate_sentence, bleu, EncoderCNN
 import os
 from dataloader import NewsDataset, collate_fn
 from nltk.translate.bleu_score import corpus_bleu
