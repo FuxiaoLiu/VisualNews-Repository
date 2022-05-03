@@ -373,3 +373,220 @@ class Decoder(nn.Module):
 
         trg = self.dropout((self.tok_embedding(trg) * self.scale) + self.pos_embedding(pos))
         trg1 = trg
+
+        # trg = [batch size, trg len, hid dim]
+
+        for layer in self.layers:
+            trg, trg_a, trg_v, trg_r, attention, attention2= layer(trg, enc_src, trg_mask, src_mask, imgs, enc_ref, ref_mask)
+
+        # trg = [batch size, trg len, hid dim]
+        # attention = [batch size, n heads, trg len, src len]
+        output = self.fc_out(trg)
+
+        #output1 = trg2
+        #output = F.log_softmax(output, dim=2)
+
+        # output = [batch size, trg len, output dim]
+
+        '''
+        attention = torch.mean(attention, dim=1)
+        attention2 = torch.mean(attention2, dim=1)
+
+        index1 = index1.expand(attention.size(1), index1.size(0), index1.size(1)).permute(1,0,2)
+        attn_value = torch.zeros([output.size(0), output.size(1), output.size(2)]).to(device)
+        attn_value = attn_value.scatter_add_(2, index1, attention)
+        #attn_value = F.log_softmax(attn_value, dim=2)
+        #print('trg1:', trg1.size())
+        #print('output1:', output1.size())
+        p = torch.sigmoid(self.l1(torch.cat([trg1, trg_a, trg_v], dim=2)))
+
+        index2 = index2.expand(attention2.size(1), index2.size(0), index2.size(1)).permute(1, 0, 2)
+        attn_value1 = torch.zeros([output.size(0), output.size(1), output.size(2)]).to(device)
+        attn_value1 = attn_value1.scatter_add_(2, index2, attention2)
+        # attn_value = F.log_softmax(attn_value, dim=2)
+        # print('trg1:', trg1.size())
+        # print('output1:', output1.size())
+        q = torch.sigmoid(self.l2(torch.cat([trg1, trg_r, trg_v], dim=2)))
+        output = (1 - p - q) * output + p * attn_value + q * attn_value1
+        '''
+
+
+
+        return output, output
+
+
+class DecoderLayer(nn.Module):
+    def __init__(self,
+                 hid_dim,
+                 n_heads,
+                 pf_dim,
+                 dropout):
+        super().__init__()
+        self.self_attn_layer_norm = nn.LayerNorm(hid_dim)
+        self.enc_attn_layer_norm = nn.LayerNorm(hid_dim)
+        #self.enc_attn_layer_norm1 = nn.LayerNorm(hid_dim)
+        self.ff_layer_norm = nn.LayerNorm(hid_dim)
+        self.self_attention = MultiHeadAttentionLayer(hid_dim, n_heads, dropout)
+        self.encoder_attention = MultiHeadAttentionLayer(hid_dim, n_heads, dropout)
+        self.encoder_attention1 = MultiHeadAttentionLayer(hid_dim, n_heads, dropout)
+        self.encoder_attention2 = MultiHeadAttentionLayer(hid_dim, n_heads, dropout)
+        self.positionwise_feedforward = PositionwiseFeedforwardLayer(hid_dim,
+                                                                     pf_dim,
+                                                                     dropout)
+        self.dropout = nn.Dropout(dropout)
+        self.v = nn.Linear(512, 512)
+        #self.v1 = nn.Linear(1024, 512)
+        self.relu = nn.ReLU()
+
+    def forward(self, trg, enc_src, trg_mask, src_mask, imgs, enc_ref, ref_mask):
+        # trg = [batch size, trg len, hid dim]
+        # enc_src = [batch size, src len, hid dim]
+        # trg_mask = [batch size, trg len]
+        # src_mask = [batch size, src len]
+
+        # self attention
+        #print('imgs:', imgs.size())
+        imgs = self.relu(self.v(imgs))
+        #print('imgs:', imgs.size())
+        _trg, _ = self.self_attention(trg, trg, trg, trg_mask)
+
+        # dropout, residual connection and layer norm
+        trg = self.self_attn_layer_norm(trg + self.dropout(_trg))
+
+        # trg = [batch size, trg len, hid dim]
+
+        # encoder attention
+        # 这儿加东西
+        _trg0, attention = self.encoder_attention(trg, enc_src, enc_src, src_mask)
+        _trg2, attention2 = self.encoder_attention2(trg, enc_ref, enc_ref, ref_mask)
+        _trg1, attention1 = self.encoder_attention1(trg, imgs, imgs)
+
+        # dropout, residual connection and layer norm
+        trg1_ = _trg0
+        trg2_ = _trg1
+        trg3_ = _trg2
+        trg = self.enc_attn_layer_norm(trg + self.dropout(_trg0) + self.dropout(_trg1) + self.dropout(_trg2))
+        #trg1 = self.enc_attn_layer_norm1(trg + self.dropout(_trg1))
+
+        # trg = [batch size, trg len, hid dim]
+
+        # positionwise feedforward
+        _trg = self.positionwise_feedforward(trg)
+
+        # dropout, residual and layer norm
+        trg = self.ff_layer_norm(trg + self.dropout(_trg))
+
+        # trg = [batch size, trg len, hid dim]
+        # attention = [batch size, n heads, trg len, src len]
+
+        return trg, trg1_, trg2_, trg3_, attention, attention2
+
+
+class Seq2Seq(nn.Module):
+    def __init__(self,
+                 encoder,
+                 decoder,
+                 src_pad_idx,
+                 trg_pad_idx):
+        super().__init__()
+
+        self.encoder = encoder
+        self.decoder = decoder
+        self.src_pad_idx = 0
+        self.trg_pad_idx = 0
+        #self.device = device
+        self.l1 = nn.Linear(2048, 512)
+        self.dropout = nn.Dropout(0.1)
+        self.relu = nn.ReLU()
+
+    def make_src_mask(self, src):
+        # src = [batch size, src len]
+        #print('self.src_pad_idx:', self.src_pad_idx)
+        src_mask = (src != self.src_pad_idx).unsqueeze(1).unsqueeze(2)
+
+        # src_mask = [batch size, 1, 1, src len]
+
+        return src_mask
+
+    def make_trg_mask(self, trg):
+        # trg = [batch size, trg len]
+
+        #print('self.trg_pad_idx:', self.trg_pad_idx)
+        trg_pad_mask = (trg != self.trg_pad_idx).unsqueeze(1).unsqueeze(2)
+
+        # trg_pad_mask = [batch size, 1, 1, trg len]
+
+        trg_len = trg.shape[1]
+
+        trg_sub_mask = torch.tril(torch.ones((trg_len, trg_len), device=device)).bool()
+
+        # trg_sub_mask = [trg len, trg len]
+
+        trg_mask = trg_pad_mask & trg_sub_mask
+
+        # trg_mask = [batch size, 1, trg len, trg len]
+
+        return trg_mask
+
+    def forward(self, src, reference, trg, imgs):
+        # src = [batch size, src len]
+        # trg = [batch size, trg len]
+        imgs = imgs.view(imgs.size(0), -1, imgs.size(3))
+        #imgs = self.relu(self.dropout(self.l1(imgs)))
+
+        src_mask = self.make_src_mask(src)
+        ref_mask = self.make_src_mask(reference)
+        trg_mask = self.make_trg_mask(trg)
+
+        # src_mask = [batch size, 1, 1, src len]
+        # trg_mask = [batch size, 1, trg len, trg len]
+
+        enc_src = self.encoder(src, src_mask, imgs)
+        enc_ref = self.encoder(reference, ref_mask, imgs)
+        # enc_src = [batch size, src len, hid dim]
+
+        output, attention = self.decoder(trg, enc_src, src, trg_mask, src_mask, imgs, enc_ref, reference, ref_mask)
+
+        # output = [batch size, trg len, output dim]
+        # attention = [batch size, n heads, trg len, src len]
+
+        return output, attention, src_mask
+
+def translate_sentence(model, src, enc_ref, word_map, caplens, imgs, device):
+    model.eval()
+    imgs = imgs.view(imgs.size(0), -1, imgs.size(3))
+
+    #imgs = model.relu(model.l1(imgs))
+    src_mask = model.make_src_mask(src)
+    ref_mask = model.make_src_mask(enc_ref)
+    reference = enc_ref
+    with torch.no_grad():
+        enc_src = model.encoder(src, src_mask, imgs)
+        enc_ref = model.encoder(enc_ref, ref_mask, imgs)
+
+    max_length = max(caplens)
+    outputs = [word_map.word2idx['<start>']]
+    for i in range(max_length):
+        trg_tensor = torch.LongTensor(outputs).unsqueeze(0).to(device)
+        trg_mask = model.make_trg_mask(trg_tensor)
+
+        with torch.no_grad():
+            output, attention = model.decoder(trg_tensor, enc_src, src, trg_mask, src_mask, imgs, enc_ref, reference, ref_mask)
+            #output = model(sentence_tensor, trg_tensor)
+
+        best_guess = output.argmax(2)[:, -1].item()
+        outputs.append(best_guess)
+
+        if best_guess == word_map.word2idx['<end>']:
+            break
+
+    translated_sentence = [word_map.idx2word[idx] for idx in outputs]
+    # remove start token
+    return translated_sentence[1:]
+
+def bleu(arts, reference, model, word_map, caplens, imgs, device):
+
+    prediction = translate_sentence(model, arts, reference, word_map, caplens, imgs, device)
+    prediction = prediction[:-1]  # remove <eos> token
+    return prediction
+
