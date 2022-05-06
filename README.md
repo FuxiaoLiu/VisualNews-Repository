@@ -17,13 +17,14 @@ We propose Visual News Captioner, an entity-aware model for the task of news ima
 - Some of the articles have the image position, image titles and keyphrases. We will release it soon. Stay tuned!
 
    
-
 ## Requirements
 - Python 3
 - Pytorch > 1.0
 
 ## Model
-The code of our model is in ./model. If you have any questions, please email: fl3es@virginia.edu
+The code of our model is in ./model. 
+- CUDA_VISIBLE_DEVICES=0 python main.py
+If you have any questions, please email: fl3es@virginia.edu
 ![Examples from our VisualNews dataset](./model.png)
 
 ## Resourse
