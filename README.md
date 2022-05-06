@@ -23,7 +23,9 @@ We propose Visual News Captioner, an entity-aware model for the task of news ima
 
 ## Model
 The code of our model is in ./model. 
-### CUDA_VISIBLE_DEVICES=0 python main.py
+```
+CUDA_VISIBLE_DEVICES=0 python main.py
+```
 If you have any questions, please email: fl3es@virginia.edu
 ![Examples from our VisualNews dataset](./model.png)
 
