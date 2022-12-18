@@ -34,15 +34,6 @@ class NewsDataset(data.Dataset):
         #source = self.ann[index]['source']
         zero = 7 - len(image_id)
 
-        '''
-        for i in range(zero):
-            image_id = '0' + image_id
-        file_d = image_id[:4]
-        image_d = image_id[4:]
-        #image_path = self.image_dir + source + '/images' + '/' + file_d + '/' + image_d + '.jpg'
-        #image = Image.open(os.path.join(self.image_dir, str(image_id) + '.jpg')).convert('RGB')
-        image_path = self.image_dir + '/' + file_d + '/' + image_d + '.jpg'
-        '''
         for i in range(zero):
             image_id = '0' + image_id
         file_d = image_id[:4]
@@ -60,19 +51,7 @@ class NewsDataset(data.Dataset):
 
 
         image = Image.open(image_path).convert('RGB')
-        '''
-        try:
-            image = Image.open(image_path).convert('RGB')
-        except:
-            image_id = str(self.ann[2]['id'])
-            zero = 7 - len(image_id)
-            for i in range(zero):
-                image_id = '0' + image_id
-            file_d = image_id[:4]
-            image_d = image_id[4:]
-            image_path = self.image_dir + '/' + file_d + '/' + image_d + '.jpg'
-            image = Image.open(image_path).convert('RGB')
-        '''
+
         if self.transform is not None:
             image = self.transform(image)
         # caption part
@@ -97,15 +76,6 @@ class NewsDataset(data.Dataset):
         target1 = torch.Tensor(article1)
         #print(target1.size())
 
-
-        '''
-        tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-        tokenized_text = tokenizer.tokenize(article)
-        indexed_tokens = tokenizer.convert_tokens_to_ids(tokenized_text)
-        segments_ids = [1] * len(tokenized_text)
-        tokens_tensor = torch.squeeze(torch.tensor([indexed_tokens]))
-        segments_tensors = torch.squeeze(torch.tensor([segments_ids]))
-        '''
         #print(tokens_tensor.size())
         #print(segments_tensors.size())
         #print(target1.size())
