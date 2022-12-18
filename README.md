@@ -5,10 +5,9 @@ Fuxiao Liu, [Yinghan Wang](https://www.linkedin.com/in/yinghan-wang-39980a119/),
 We propose Visual News Captioner, an entity-aware model for the task of news image captioning. We also introduce Visual News, a large-scale benchmark consisting of more than one million news images along with associated news articles, image captions, author information, and other metadata. Unlike the standard image captioning task, news images depict situations where people, locations, and events are of paramount importance. Our proposed method can effectively combine visual and textual features to generate captions with richer information such as events and entities. More specifically, built upon the Transformer architecture, our model is further equipped with novel multi-modal feature fusion techniques and attention mechanisms, which are designed to generate named entities more accurately. Our method utilizes much fewer parameters while achieving slightly better prediction results than competing methods. Our larger and more diverse Visual News dataset further highlights the remaining challenges in captioning news images.
 
 
-## Dataset Examples
-![Examples from our VisualNews dataset](./sample.jpg)
 
-## VisualNews is more Diverse!
+
+## VisualNews is Diverse!
 ![Examples from our VisualNews dataset](./diverse.png)
 
 ## Getting Data
@@ -28,7 +27,7 @@ We propose Visual News Captioner, an entity-aware model for the task of news ima
 - urllib2==2.7
 - goose==1.0.25
 
-## Model
+## Training
 The code of our model is in ./model. 
 ```
 CUDA_VISIBLE_DEVICES=0 python main.py
@@ -36,7 +35,7 @@ CUDA_VISIBLE_DEVICES=0 python main.py
 If you have any questions, please email: fl3es@virginia.edu
 ![Examples from our VisualNews dataset](./model.png)
 
-## Instruction
+## More Instructions
 - [PPT](./visualnews_ppt.pdf) 
 - [Video](https://underline.io/lecture/37789-visual-news-benchmark-and-challenges-in-news-image-captioning)
 
