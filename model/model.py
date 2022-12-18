@@ -183,25 +183,6 @@ class EncoderLayer(nn.Module):
 
         return src4
 
-'''
-class Attention(nn.Module):
-    def __init__(self, encoder_dim, decoder_dim, attention_dim):
-        super(Attention, self).__init__()
-        self.encoder_att = nn.Linear(encoder_dim, attention_dim)
-        self.decoder_att = nn.Linear(decoder_dim, attention_dim)
-        self.full_att = nn.Linear(attention_dim, 1)
-        self.tanh = nn.Tanh()
-        self.softmax = nn.Softmax(dim=1)
-
-    def forward(self, encoder_out):
-        att1 = self.encoder_att(encoder_out)
-        att2 = self.decoder_att(encoder_out)
-
-        att = self.full_att(self.tanh(att1)).squeeze(2)
-        alpha = self.softmax(att)
-        attention_weighted_encoding = (att2 * alpha.unsqueeze(2)).sum(dim=1)
-        return attention_weighted_encoding
-'''
 
 class MultiHeadAttentionLayer(nn.Module):
     def __init__(self, hid_dim, n_heads, dropout):
@@ -383,34 +364,23 @@ class Decoder(nn.Module):
         # attention = [batch size, n heads, trg len, src len]
         output = self.fc_out(trg)
 
-        #output1 = trg2
-        #output = F.log_softmax(output, dim=2)
-
         # output = [batch size, trg len, output dim]
 
-        '''
+        
         attention = torch.mean(attention, dim=1)
         attention2 = torch.mean(attention2, dim=1)
 
         index1 = index1.expand(attention.size(1), index1.size(0), index1.size(1)).permute(1,0,2)
         attn_value = torch.zeros([output.size(0), output.size(1), output.size(2)]).to(device)
         attn_value = attn_value.scatter_add_(2, index1, attention)
-        #attn_value = F.log_softmax(attn_value, dim=2)
-        #print('trg1:', trg1.size())
-        #print('output1:', output1.size())
         p = torch.sigmoid(self.l1(torch.cat([trg1, trg_a, trg_v], dim=2)))
 
         index2 = index2.expand(attention2.size(1), index2.size(0), index2.size(1)).permute(1, 0, 2)
         attn_value1 = torch.zeros([output.size(0), output.size(1), output.size(2)]).to(device)
         attn_value1 = attn_value1.scatter_add_(2, index2, attention2)
-        # attn_value = F.log_softmax(attn_value, dim=2)
-        # print('trg1:', trg1.size())
-        # print('output1:', output1.size())
         q = torch.sigmoid(self.l2(torch.cat([trg1, trg_r, trg_v], dim=2)))
         output = (1 - p - q) * output + p * attn_value + q * attn_value1
-        '''
-
-
+        
 
         return output, output
 
@@ -456,7 +426,6 @@ class DecoderLayer(nn.Module):
         # trg = [batch size, trg len, hid dim]
 
         # encoder attention
-        # 这儿加东西
         _trg0, attention = self.encoder_attention(trg, enc_src, enc_src, src_mask)
         _trg2, attention2 = self.encoder_attention2(trg, enc_ref, enc_ref, ref_mask)
         _trg1, attention1 = self.encoder_attention1(trg, imgs, imgs)
