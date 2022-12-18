@@ -18,8 +18,15 @@ We propose Visual News Captioner, an entity-aware model for the task of news ima
 
    
 ## Requirements
-- Python 3
-- Pytorch > 1.0
+- pytorch==1.0.0
+- spacy==2.0.11
+- h5py==2.7.0
+- bs4==4.5.3
+- joblib==0.12.2
+- nltk==3.2.3
+- tqdm==4.19.5
+- urllib2==2.7
+- goose==1.0.25
 
 ## Model
 The code of our model is in ./model. 
