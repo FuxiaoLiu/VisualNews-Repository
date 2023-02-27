@@ -32,7 +32,7 @@ The code of our model is in ./model.
 ```
 CUDA_VISIBLE_DEVICES=0 python main.py
 ```
-If you have any questions, please email: fl3es@virginia.edu
+If you have any questions, please email: fl3es@umd.edu
 ![Examples from our VisualNews dataset](./model.png)
 
 ## More Instructions
