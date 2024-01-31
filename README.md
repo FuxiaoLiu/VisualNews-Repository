@@ -5,6 +5,40 @@ Fuxiao Liu, [Yinghan Wang](https://www.linkedin.com/in/yinghan-wang-39980a119/),
 We propose Visual News Captioner, an entity-aware model for the task of news image captioning. We also introduce Visual News, a large-scale benchmark consisting of more than one million news images along with associated news articles, image captions, author information, and other metadata. Unlike the standard image captioning task, news images depict situations where people, locations, and events are of paramount importance. Our proposed method can effectively combine visual and textual features to generate captions with richer information such as events and entities. More specifically, built upon the Transformer architecture, our model is further equipped with novel multi-modal feature fusion techniques and attention mechanisms, which are designed to generate named entities more accurately. Our method utilizes much fewer parameters while achieving slightly better prediction results than competing methods. Our larger and more diverse Visual News dataset further highlights the remaining challenges in captioning news images.
 
 
+```
+@misc{liu2020visualnews,
+      title={VisualNews : Benchmark and Challenges in Entity-aware Image Captioning}, 
+      author={Fuxiao Liu and Yinghan Wang and Tianlu Wang and Vicente Ordonez},
+      year={2020},
+      eprint={2010.03743},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+@article{liu2023aligning,
+  title={Aligning Large Multi-Modal Model with Robust Instruction Tuning},
+  author={Liu, Fuxiao and Lin, Kevin and Li, Linjie and Wang, Jianfeng and Yacoob, Yaser and Wang, Lijuan},
+  journal={arXiv preprint arXiv:2306.14565},
+  year={2023}
+}
+@article{liu2023hallusionbench,
+  title={HallusionBench: You See What You Think? Or You Think What You See? An Image-Context Reasoning Benchmark Challenging for GPT-4V (ision), LLaVA-1.5, and Other Multi-modality Models},
+  author={Liu, Fuxiao and Guan, Tianrui and Li, Zongxia and Chen, Lichang and Yacoob, Yaser and Manocha, Dinesh and Zhou, Tianyi},
+  journal={arXiv preprint arXiv:2310.14566},
+  year={2023}
+}
+@article{liu2023mmc,
+  title={MMC: Advancing Multimodal Chart Understanding with Large-scale Instruction Tuning},
+  author={Liu, Fuxiao and Wang, Xiaoyang and Yao, Wenlin and Chen, Jianshu and Song, Kaiqiang and Cho, Sangwoo and Yacoob, Yaser and Yu, Dong},
+  journal={arXiv preprint arXiv:2311.10774},
+  year={2023}
+}
+@article{liu2023covid,
+  title={COVID-VTS: Fact Extraction and Verification on Short Video Platforms},
+  author={Liu, Fuxiao and Yacoob, Yaser and Shrivastava, Abhinav},
+  journal={arXiv preprint arXiv:2302.07919},
+  year={2023}
+}
+```
 
 
 ## VisualNews is Diverse!
@@ -42,13 +76,4 @@ If you have any questions, please email: fl3es@umd.edu
 ## Citing
 If you find our paper/code useful, please consider citing:
 
-```
-@misc{liu2020visualnews,
-      title={VisualNews : Benchmark and Challenges in Entity-aware Image Captioning}, 
-      author={Fuxiao Liu and Yinghan Wang and Tianlu Wang and Vicente Ordonez},
-      year={2020},
-      eprint={2010.03743},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-}
-```
+
