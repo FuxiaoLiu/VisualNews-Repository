@@ -14,31 +14,13 @@ We propose Visual News Captioner, an entity-aware model for the task of news ima
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
-@article{liu2023aligning,
-  title={Aligning Large Multi-Modal Model with Robust Instruction Tuning},
-  author={Liu, Fuxiao and Lin, Kevin and Li, Linjie and Wang, Jianfeng and Yacoob, Yaser and Wang, Lijuan},
-  journal={arXiv preprint arXiv:2306.14565},
-  year={2023}
-}
-@article{liu2023hallusionbench,
-  title={HallusionBench: You See What You Think? Or You Think What You See? An Image-Context Reasoning Benchmark Challenging for GPT-4V (ision), LLaVA-1.5, and Other Multi-modality Models},
-  author={Liu, Fuxiao and Guan, Tianrui and Li, Zongxia and Chen, Lichang and Yacoob, Yaser and Manocha, Dinesh and Zhou, Tianyi},
-  journal={arXiv preprint arXiv:2310.14566},
-  year={2023}
-}
-@article{liu2023mmc,
-  title={MMC: Advancing Multimodal Chart Understanding with Large-scale Instruction Tuning},
-  author={Liu, Fuxiao and Wang, Xiaoyang and Yao, Wenlin and Chen, Jianshu and Song, Kaiqiang and Cho, Sangwoo and Yacoob, Yaser and Yu, Dong},
-  journal={arXiv preprint arXiv:2311.10774},
-  year={2023}
-}
-@article{liu2023covid,
-  title={COVID-VTS: Fact Extraction and Verification on Short Video Platforms},
-  author={Liu, Fuxiao and Yacoob, Yaser and Shrivastava, Abhinav},
-  journal={arXiv preprint arXiv:2302.07919},
-  year={2023}
 }
 ```
+
+## News
+- [03/13]🔥 Our paper ["MMC: Advancing Multimodal Chart Understanding with LLM Instruction Tuning"](https://arxiv.org/pdf/2311.10774.pdf) is accepted to **[NAACL 2024](https://2024.naacl.org)**.
+- [02/26]🔥 Our paper ["HallusionBench: You See What You Think? Or You Think What You See? An Image-Context Reasoning Benchmark Challenging for GPT-4V(ision), LLaVA-1.5, and Other Multi-modality Models"](https://arxiv.org/abs/2310.14566) is accpeted to **[CVPR 2024](https://cvpr.thecvf.com)**.
+- [01/15]🔥 Our paper [Mitigating Hallucination in Large Multi-Modal Models via Robust Instruction Tuning](http://arxiv.org/abs/2306.14565) is accepted by **[ICLR 2024](https://iclr.cc)**
 
 
 ## VisualNews is Diverse!
