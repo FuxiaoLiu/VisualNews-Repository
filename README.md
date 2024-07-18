@@ -27,7 +27,8 @@ We propose Visual News Captioner, an entity-aware model for the task of news ima
 ![Examples from our VisualNews dataset](./diverse.png)
 
 ## Getting Data
-- Our dataset is available upon request. Please contact fl3es@umd.edu
+- Our dataset is available at https://www.cs.rice.edu/~vo9/visualnews/.
+  
 ## Data Preprocess
 - To access our dataset, please refer to this [demo](./VisualNews-Dataset.ipynb)
 
